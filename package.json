@@ -4,6 +4,7 @@
   "description": "sass learning project",
   "main": "index.js",
   "scripts": {
+    "compile:sass": "node-sass src/scss/main.scss src/css/style.css"
   },
   "repository": {
     "type": "git",
