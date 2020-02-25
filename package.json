@@ -4,7 +4,6 @@
   "description": "sass learning project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -15,5 +14,8 @@
   "bugs": {
     "url": "https://github.com/Bulat-Almukhametov/KoronaTour/issues"
   },
-  "homepage": "https://github.com/Bulat-Almukhametov/KoronaTour#readme"
+  "homepage": "https://github.com/Bulat-Almukhametov/KoronaTour#readme",
+  "devDependencies": {
+    "node-sass": "^4.13.1"
+  }
 }
