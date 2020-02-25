@@ -88,3 +88,5 @@ typings/
 .dynamodb/
 .idea/vcs.xml
 .idea/workspace.xml
+package-lock.json
+src/css/style.css

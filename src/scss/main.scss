@@ -1,24 +1,19 @@
-/*
-COLORS:
-
-Light green: #7ed56f
-Medium green: #55c57a
-Dark green: #28b485
-
-*/
+$header-gradient-from: #EA97C5;
+$header-gradient-to: #B93224;
+$text-color: #777;
 
 body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.7;
-  color: #777;
+  color: $text-color;
   padding: 2rem;
 }
 
 .header {
   height: 95vh;
-  background-image: linear-gradient(to right bottom, rgba(234, 151, 197, 0.8), rgba(185, 50, 36, 0.8)),
+  background-image: linear-gradient(to right bottom, rgba($header-gradient-from, 0.8), rgba($header-gradient-to, 0.8)),
   url(../img/people_with_mask.jpg);
   background-size: cover;
   background-position: top;
@@ -34,11 +29,11 @@ body {
   animation-duration: 4s;
   animation-delay: 2s;
   animation-fill-mode: backwards;
-}
 
-.logo {
-  max-width: 12vw;
-  width: 12vh;
+  .logo {
+    max-width: 12vw;
+    width: 12vh;
+  }
 }
 
 .text-box {
@@ -53,57 +48,47 @@ body {
   color: #f9d1fd;
   text-transform: uppercase;
   white-space: nowrap;
-}
 
-.heading-primary-main {
-  display: block;
-  font-weight: 600;
-  font-size: 6vw;
-  letter-spacing: 2vw;
-  animation-name: fromLeft;
-  animation-duration: 2s;
-}
-
-.heading-primary-sub {
-  display: block;
-  font-size: 2vw;
-  font-weight: 400;
-  letter-spacing: 1.6vw;
-  animation-name: fromRight;
-  animation-duration: 2s;
-}
-
-@keyframes fromLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(-200px);
+  .heading-primary-main {
+    display: block;
+    font-weight: 600;
+    font-size: 6vw;
+    letter-spacing: 2vw;
+    animation-name: fromLeft;
+    animation-duration: 2s;
   }
 
-  80% {
-    transform: translateX(-30px);
-    opacity: 1;
-  }
-
-  100% {
-    transform: translate(0);
+  .heading-primary-sub {
+    display: block;
+    font-size: 2vw;
+    font-weight: 400;
+    letter-spacing: 1.6vw;
+    animation-name: fromRight;
+    animation-duration: 2s;
   }
 }
 
-@keyframes fromRight {
-  0% {
-    opacity: 0;
-    transform: translateX(200px);
-  }
+@mixin goFrom($direction, $multiplier) {
+  @keyframes from#{$direction} {
+    0% {
+      opacity: 0;
+      transform: translateX($multiplier * 20vw);
+    }
 
-  80% {
-    transform: translateX(30px);
-    opacity: 1;
-  }
+    80% {
+      transform: translateX($multiplier * 3vw);
+      opacity: 1;
+    }
 
-  100% {
-    transform: translate(0);
+    100% {
+      transform: translate(0);
+    }
   }
 }
+
+@include goFrom('Left', -1);
+@include goFrom('Right', 1);
+
 
 @keyframes fromDown {
   0% {
@@ -126,43 +111,48 @@ body {
   transition: all .2s;
   backface-visibility: hidden;
   position: relative;
+
+
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px #ea77ff;
+  }
+
+  &::after {
+    content: "";
+    display: inline-block;
+    border-radius: 10px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px #ea77ff;
+
+    &::after {
+      transform: scaleX(1.4) scaleY(2);
+      opacity: 0;
+      transition: all ease-in .4s;
+    }
+  }
+
+
 }
 
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px #ea77ff;
-}
-
-.btn:active {
-  transform: translateY(-1px);
-  box-shadow: 0 5px 10px #ea77ff;
-}
 
 .btn-purple {
-  background-color: #c367d4;
+  $btn-purple-color: #c367d4;
+  background-color: $btn-purple-color;
   color: white;
-}
 
-.btn::after {
-  content: "";
-  display: inline-block;
-  border-radius: 10px;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  height: 100%;
-  width: 100%;
-  z-index: -1;
-}
-
-.btn:hover::after {
-  transform: scaleX(1.4) scaleY(2);
-  opacity: 0;
-  transition: all ease-in .4s;
-}
-
-.btn-purple::after {
-  background-color: #c367d4;
+  &::after {
+    background-color: $btn-purple-color;
+  }
 }
 
 .btn ~ .typing-text {
@@ -181,32 +171,34 @@ body {
   transform: translateX(-50%);
 }
 
-.typing-text .word {
-  display: inline-block;
-  transform-origin: 0% 100%;
-  animation-name: print-word;
-  animation-duration: 1s;
-  animation-fill-mode: backwards;
-}
 
-.typing-text .word:nth-child(2){
-  animation-delay: 1s;
-}
 
-.typing-text .word:nth-child(3){
-  animation-delay: 2s;
-}
+.typing-text {
+  .word {
+    display: inline-block;
+    transform-origin: 0% 100%;
+    animation-name: print-word;
+    animation-duration: 1s;
+    animation-fill-mode: backwards;
 
-.typing-text .word:nth-child(4){
-  animation-delay: 3s;
-}
-
-@keyframes print-word {
-  0% {
-    transform: scaleX(0);
-  }
-
-  100% {
-    transform: scaleX(1);
+    @mixin addDelayToChild($child:1) {
+      &:nth-child(#{$child}) {
+        animation-delay: ($child - 1) * 1s;
+      }
+    }
+    @include addDelayToChild(2);
+    @include addDelayToChild(3);
+    @include addDelayToChild(4);
   }
 }
+
+
+  @keyframes print-word {
+    0% {
+      transform: scaleX(0);
+    }
+
+    100% {
+      transform: scaleX(1);
+    }
+  }
