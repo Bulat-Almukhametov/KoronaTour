@@ -1,0 +1,21 @@
+@include goFrom('Left', -1);
+@include goFrom('Right', 1);
+
+@keyframes fromDown {
+  from {
+    opacity: 0;
+    transform: rotateY(721deg) translateY(150px);
+  }
+  to {
+    transform: rotate(0) translate(0);
+  }
+}
+
+@keyframes print-word {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}

@@ -1,0 +1,23 @@
+.heading-primary {
+  color: $heading-primary-color;
+  text-transform: uppercase;
+  white-space: nowrap;
+
+  &__main {
+    display: block;
+    font-weight: 600;
+    font-size: 6vw;
+    letter-spacing: 2vw;
+    animation-name: fromLeft;
+    animation-duration: 2s;
+  }
+
+  &__sub {
+    display: block;
+    font-size: 2vw;
+    font-weight: 400;
+    letter-spacing: 1.6vw;
+    animation-name: fromRight;
+    animation-duration: 2s;
+  }
+}

@@ -1,0 +1,18 @@
+@mixin goFrom($direction, $multiplier) {
+  @keyframes from#{$direction} {
+    0% {
+      opacity: 0;
+      transform: translateX($multiplier * 20vw);
+    }
+
+    80% {
+      transform: translateX($multiplier * 5vw);
+      opacity: 1;
+    }
+
+    100% {
+      transform: translate(0);
+    }
+  }
+}
+
