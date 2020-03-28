@@ -1,0 +1,49 @@
+.context-menu {
+  &__button {
+    border: none;
+    background-color: transparent;
+    &:focus {
+      outline-color: transparent;
+    }
+  }
+  &__content {
+    display: none;
+
+    ul {
+      list-style: none;
+      background-color: $context-menu-background-color;
+      padding: 0;
+      position: relative;
+      border-radius: 5px;
+
+      &::before {
+        content: " ";
+        position: absolute;
+        top: $context-menu-arrow-top;
+        left: -$context-menu-arrow-size;
+        border-top: $context-menu-arrow-size solid transparent;
+        border-bottom: $context-menu-arrow-size solid transparent;
+        border-right: $context-menu-arrow-size solid $context-menu-background-color;
+        width: 0;
+        height: 0;
+      }
+
+      li {
+        padding: 0 15px;
+        &:hover {
+          background-color: skyblue;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  &__button:focus + &__content {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    z-index: 1000;
+    white-space: nowrap;
+  }
+}
