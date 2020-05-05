@@ -42,7 +42,7 @@
 
   &_purple {
     background-color: $btn-purple-color;
-    color: white;
+    color: $btn-text-color;
 
     &::after {
       background-color: $btn-purple-color;
@@ -55,5 +55,33 @@
 
   &:hover ~ .typing-text {
     display: block;
+  }
+
+  &-text {
+    &:link,
+    &:visited,
+    &:active {
+      color: $btn-purple-color;
+      display: inline-block;
+      text-decoration: none;
+      padding: 3px;
+      border-bottom: 2px solid $btn-purple-color;
+      font-size: $default-font-size;
+    }
+
+    &:hover, &:active {
+      background-color: $btn-purple-color;
+      color: $btn-text-color;
+      box-shadow: 0 1vh 3vh rgba(black, 0.3);
+    }
+
+    &:hover {
+      transform: translateY(-4px);
+    }
+
+    &:active {
+      transform: translateY(4px);
+    }
+
   }
 }
