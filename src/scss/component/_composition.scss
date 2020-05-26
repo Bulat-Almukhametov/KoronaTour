@@ -1,0 +1,37 @@
+.composition {
+  position: relative;
+
+  &__photo {
+    height: 200px;
+    width: 55%;
+    box-shadow: 0 15px 40px rgba(blue, .3);
+    border-radius: 6px;
+    position: absolute;
+    transition: all .3s;
+
+    &_p1 {
+      top: -6vh;
+      left: 0;
+    }
+    &_p2 {
+      top: 0;
+      right: 0;
+    }
+    &_p3 {
+      top: 15vh;
+      left: 20%;
+    }
+
+    &:hover {
+      transform: scale(1.2);
+      z-index: 100;
+      border: azure solid 3px;
+      box-shadow: 0 20px 50px rgba(blue, .5);
+    }
+  }
+
+  &:hover &__photo:not(:hover) {
+    transform: scale(.9);
+  }
+
+}
