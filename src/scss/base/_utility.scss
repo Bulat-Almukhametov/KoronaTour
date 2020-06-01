@@ -2,14 +2,34 @@
   text-align: center;
 }
 
-.u-margin-bottom-big {
-  margin-bottom: 8vh;
-}
+.u-margin {
+  &-top {
+    &-zero {
+      margin-top: 0;
+    }
+    &-big {
+      margin-top: 8vh;
+    }
+    &-medium {
+      margin-top: 4vh;
+    }
+    &-small {
+      margin-top: 2vh;
+    }
+  }
 
-.u-margin-bottom-medium {
-  margin-bottom: 4vh;
-}
-
-.u-margin-bottom-small {
-  margin-bottom: 2vh;
+  &-bottom {
+    &-zero {
+      margin-bottom: 0;
+    }
+    &-big {
+      margin-bottom: 8vh;
+    }
+    &-medium {
+      margin-bottom: 4vh;
+    }
+    &-small {
+      margin-bottom: 2vh;
+    }
+  }
 }

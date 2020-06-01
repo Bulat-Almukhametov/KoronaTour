@@ -12,3 +12,16 @@ body {
   padding: 20vh 0;
   margin-top: -20vh;
 }
+
+.section-features {
+  padding: 15vh 0;
+  background-image: linear-gradient(to right bottom, rgba($header-gradient-from, 0.8), rgba($header-gradient-to, 0.8)),
+  url(../img/room.jpg);
+  background-size: cover;
+  transform: skewY(-5deg);
+  margin-top: -9vh;
+
+  & > * {
+    transform: skewY(5deg);
+  }
+}
